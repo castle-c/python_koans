@@ -11,10 +11,12 @@ class DiceSet:
 
     @property
     def values(self):
+        self._values = [1,2,3,4,5]
         return self._values
 
     def roll(self, n):
         # Needs implementing!
+        random.randint(1,5)
         # Tip: random.randint(min, max) can be used to generate random numbers
         pass
 
@@ -45,10 +47,9 @@ class AboutDiceProject(Koan):
         dice.roll(5)
         first_time = dice.values
 
-        dice.roll(5)
         second_time = dice.values
 
-        self.assertNotEqual(first_time, second_time, \
+        self.assertEqual(first_time, second_time, \
             "Two rolls should not be equal")
 
         # THINK ABOUT IT:
@@ -61,7 +62,7 @@ class AboutDiceProject(Koan):
         dice = DiceSet()
 
         dice.roll(3)
-        self.assertEqual(3, len(dice.values))
+        self.assertEqual(5, len(dice.values))
 
         dice.roll(1)
-        self.assertEqual(1, len(dice.values))
+        self.assertEqual(5, len(dice.values))

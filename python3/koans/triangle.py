@@ -18,8 +18,24 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    if a <= 0 or b <= 0 or c <= 0:
+      raise TriangleError(AttributeError('Negative value not allowed'))
+
+    if a + b <=  c:
+     raise TriangleError(AttributeError('largest side should be smaller than other 2 sides combined'))
+
+    if a + c <=  b:
+     raise TriangleError(AttributeError('largest side should be smaller than other 2 sides combined'))
+
+    if a==b & b==c:
+      return 'equilateral'
+
+    if a==b or a==c or b==c:
+      return 'isosceles'
+
+    else:
+      return 'scalene'
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
-    pass
+  pass
